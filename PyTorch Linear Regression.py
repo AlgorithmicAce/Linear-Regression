@@ -3,7 +3,7 @@ from torch import optim, nn
 import matplotlib.pyplot as plt
 
 X = torch.arange(0, 6, 0.1).view(-1,1)
-F = -3 * X + 1
+F = -3 * X + 2
 Y = F + 0.5 * torch.randn(X.shape)
 
 class LinearRegression(nn.Module):
@@ -17,7 +17,7 @@ class LinearRegression(nn.Module):
 
 model = LinearRegression(1,1)
 criterion = nn.MSELoss()
-optimizer = optim.SGD(model.parameters(), lr = 0.01)
+optimizer = optim.SGD(model.parameters(), lr = 0.05)
 
 loss_list = []
 n_epoch = 200
