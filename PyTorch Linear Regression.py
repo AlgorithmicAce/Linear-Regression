@@ -2,7 +2,7 @@ import torch
 from torch import optim, nn
 import matplotlib.pyplot as plt
 
-X = torch.arange(-3, 3, 0.1).view(-1,1)
+X = torch.arange(0, 6, 0.1).view(-1,1)
 F = -3 * X + 1
 Y = F + 0.5 * torch.randn(X.shape)
 
@@ -17,10 +17,10 @@ class LinearRegression(nn.Module):
 
 model = LinearRegression(1,1)
 criterion = nn.MSELoss()
-optimizer = optim.SGD(model.parameters(), lr = 0.1)
+optimizer = optim.SGD(model.parameters(), lr = 0.01)
 
 loss_list = []
-n_epoch = 20
+n_epoch = 200
 
 for epoch in range(n_epoch):
     yhat = model(X)
@@ -40,6 +40,6 @@ plt.xlabel('Epochs')
 plt.ylabel('Loss')
 plt.title('Loss against Epoch graph')
 plt.show()
-print("The predicted bias for the model is", model.linear1.weight.detach().item())
-print("The predicted weight for the model is", model.linear1.bias.detach().item())
+print("The predicted weight for the model is", model.linear1.weight.detach().item())
+print("The predicted bias for the model is", model.linear1.bias.detach().item())
 print(loss_list[-1])
