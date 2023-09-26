@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import sklearn.linear_model as lm
+from sklearn.metrics import mean_squared_error as mse
 import numpy
 
 X = np.linspace(0,6,60)
@@ -20,5 +21,5 @@ plt.plot(X, eq, label = 'Model')
 plt.legend()
 plt.show()
 
-loss = numpy.mean((eq - Y) ** 2)
+loss = mse(Y, eq)
 print(loss)
