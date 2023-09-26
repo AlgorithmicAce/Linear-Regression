@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import sklearn.linear_model as lm
+import numpy
 
 X = np.linspace(0,6,60)
 F = -3 * X + 2
@@ -18,3 +19,6 @@ plt.plot(X, Y, 'ro', label = 'Datapoints')
 plt.plot(X, eq, label = 'Model')
 plt.legend()
 plt.show()
+
+loss = numpy.mean((eq - Y) ** 2)
+print(loss)
