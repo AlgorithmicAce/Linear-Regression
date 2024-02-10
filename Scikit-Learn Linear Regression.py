@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sklearn.linear_model as lm
 from sklearn.metrics import mean_squared_error as mse
-import numpy
 
 X = np.linspace(0,6,60)
 F = -3 * X + 2
